@@ -21,14 +21,20 @@
 ##
 
 import unittest
+import sigrok_meter.qtcompat as qtcompat
+qtcompat.load_modules(False)
+#import sigrok_meter.samplingthread as samplingthread
 
 if __name__ == '__main__':
-    import qtcompat
-    qtcompat.load_modules(False)
-    import samplingthread
+    #import sigrok_meter.qtcompat as qtcompat
+    #qtcompat.load_modules(False)
+    import sigrok_meter.samplingthread as samplingthread
 
 class TestDriverstringParsing(unittest.TestCase):
+    
     def setUp(self):
+        qtcompat.load_modules(False)
+        import sigrok_meter.samplingthread as samplingthread
         self.w = samplingthread.SamplingThread.Worker(None, None)
 
     def test_valid_driverstring(self):
