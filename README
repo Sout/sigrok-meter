@@ -40,11 +40,12 @@ In order to get the sigrok-meter source code and build it, run:
 
  $ git clone git://sigrok.org/sigrok-meter
  $ cd sigrok-meter
- $ ./sigrok-meter
+ $ python setup.py install
+ $ sigrok-meter
 
-For installing sigrok-meter:
-
- TODO.
+For testing sigrok-meter:
+ $ cd tests
+ $ python test_sigrok_meter.py
 
 See INSTALL or the following wiki page for more (OS-specific) instructions:
 

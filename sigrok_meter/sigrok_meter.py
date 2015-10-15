@@ -88,7 +88,7 @@ def parse_cli():
     return args
 
 
-if __name__ == '__main__':
+def main():
     signal.signal(signal.SIGINT, signal.SIG_DFL)
 
     args = parse_cli()
@@ -111,3 +111,5 @@ if __name__ == '__main__':
     s.show()
 
     sys.exit(app.exec_())
+if __name__ == '__main__':
+    main()

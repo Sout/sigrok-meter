@@ -1,0 +1,4 @@
+include README COPYING
+include sigrok_meter/sigrok-logo-notext.png
+recursive-include sigrok_meter *.py
+global-exclude *.pyc

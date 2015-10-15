@@ -23,20 +23,12 @@
 import unittest
 import sigrok_meter.qtcompat as qtcompat
 qtcompat.load_modules(False)
-#import sigrok_meter.samplingthread as samplingthread
-
-if __name__ == '__main__':
-    #import sigrok_meter.qtcompat as qtcompat
-    #qtcompat.load_modules(False)
-    import sigrok_meter.samplingthread as samplingthread
+import sigrok_meter.samplingthread as samplingthread
 
 class TestDriverstringParsing(unittest.TestCase):
-    
     def setUp(self):
-        qtcompat.load_modules(False)
-        import sigrok_meter.samplingthread as samplingthread
         self.w = samplingthread.SamplingThread.Worker(None, None)
-
+    
     def test_valid_driverstring(self):
         self.assertEqual(
             self.w.parse_driverstring('demo'),
@@ -47,7 +39,7 @@ class TestDriverstringParsing(unittest.TestCase):
         self.assertEqual(
             self.w.parse_driverstring('demo:samplerate=1:analog_channels=1'),
             ('demo', {'samplerate': 1, 'analog_channels': 1}))
-
+    
     def test_invalid_driverstring(self):
         self.assertRaisesRegexp(ValueError, 'is not a valid driver string',
             self.w.parse_driverstring, '')
